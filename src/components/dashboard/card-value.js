@@ -25,7 +25,7 @@ export const CardValue = (props) => (
             variant="h4"
             sx={{ color: `${props.color}` }}
           >
-            $24k
+            {props.value}
           </Typography>
         </Grid>
       </Grid>

@@ -20,6 +20,11 @@ const items = [
   {
     href: '/',
     icon: (<DesktopWindowsIcon fontSize="small" />),
+    title: 'Dashboard'
+  },
+  {
+    href: '/encuestas',
+    icon: (<DesktopWindowsIcon fontSize="small" />),
     title: 'Encuestas'
   },
   {
