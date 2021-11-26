@@ -1,74 +1,126 @@
-import { Link as RouterLink } from 'react-router-dom';
-// material
-import { styled } from '@mui/material/styles';
-import { Card, Stack, Link, Container, Typography } from '@mui/material';
-// layouts
-import AuthLayout from '../layouts/AuthLayout';
-// components
-import Page from '../components/Page';
-import { MHidden } from '../components/@material-extend';
-import { LoginForm } from '../components/authentication/login';
-import AuthSocial from '../components/authentication/AuthSocial';
+import Head from 'next/head';
+import NextLink from 'next/link';
+import { useRouter } from 'next/router';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import { Box, Button, Container, Grid, Link, TextField, Typography } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Facebook as FacebookIcon } from '../icons/facebook';
+import { Google as GoogleIcon } from '../icons/google';
+import apiAuth from 'src/api/apiAuth';
+import { useState } from 'react';
 
-// ----------------------------------------------------------------------
+const Login = () => {
 
-const RootStyle = styled(Page)(({ theme }) => ({
-  [theme.breakpoints.up('md')]: {
-    display: 'flex'
-  }
-}));
+  const [errorService, setErrorService] = useState(false)
+  const [message, setMessage] = useState('')
 
-const SectionStyle = styled(Card)(({ theme }) => ({
-  width: '100%',
-  maxWidth: 464,
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  margin: theme.spacing(2, 0, 2, 2)
-}));
 
-const ContentStyle = styled('div')(({ theme }) => ({
-  maxWidth: 480,
-  margin: 'auto',
-  display: 'flex',
-  minHeight: '100vh',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  padding: theme.spacing(12, 0)
-}));
+  const router = useRouter();
+  const formik = useFormik({
+    initialValues: {
+      user: 'admin',
+      password: 'password'
+    },
+    validationSchema: Yup.object({
+      user: Yup
+        .string()
+        .max(255)
+        .required('Campo requerido'),
+      password: Yup
+        .string()
+        .max(255)
+        .required('Campo requerido')
+    }),
+    onSubmit: async (values) => {
+      const { user, password } = values
+      const res = await apiAuth.login({ user, password })
+      if (res.status_code !== 200) {
+        setErrorService(true)
+        setMessage('Usuario y/o constraseña incorrecta')
+      } else {
+        router.push('/');
+      }
+    }
+  });
 
-// ----------------------------------------------------------------------
-
-export default function Login() {
   return (
-    <RootStyle title="Login | Minimal-UI">
-      {/* <AuthLayout>
-        Don’t have an account? &nbsp;
-        <Link underline="none" variant="subtitle2" component={RouterLink} to="/register">
-          Get started
-        </Link>
-      </AuthLayout> */}
-
-      <Container maxWidth="sm">
-        <ContentStyle>
-          <Stack sx={{ mb: 5 }}>
-            <Typography variant="h4" gutterBottom>
-              Sign in to Minimal
-            </Typography>
-            <Typography sx={{ color: 'text.secondary' }}>Enter your details below.</Typography>
-          </Stack>
-          <LoginForm />
-
-          <MHidden width="smUp">
-            <Typography variant="body2" align="center" sx={{ mt: 3 }}>
-              Don’t have an account?&nbsp;
-              <Link variant="subtitle2" component={RouterLink} to="register">
-                Get started
-              </Link>
-            </Typography>
-          </MHidden>
-        </ContentStyle>
-      </Container>
-    </RootStyle>
+    <>
+      <Head>
+        <title>Login</title>
+      </Head>
+      <Box
+        component="main"
+        sx={{
+          alignItems: 'center',
+          display: 'flex',
+          flexGrow: 1,
+          minHeight: '100%'
+        }}
+      >
+        <Container maxWidth="sm">
+          <form onSubmit={formik.handleSubmit}>
+            <Box sx={{ my: 3 }}>
+              <Typography
+                color="textPrimary"
+                variant="h4"
+              >
+                Iniciar Sesión
+              </Typography>
+            </Box>
+            {errorService &&
+              <Box sx={{ my: 2 }}>
+                <Typography
+                  color="error"
+                  variant="h6"
+                >
+                  {message}
+                </Typography>
+              </Box>
+            }
+            <TextField
+              error={Boolean(formik.touched.user && formik.errors.user)}
+              fullWidth
+              helperText={formik.touched.user && formik.errors.user}
+              label="Usuario"
+              margin="normal"
+              name="user"
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+              type="text"
+              value={formik.values.user}
+              variant="outlined"
+            />
+            <TextField
+              error={Boolean(formik.touched.password && formik.errors.password)}
+              fullWidth
+              helperText={formik.touched.password && formik.errors.password}
+              label="Password"
+              margin="normal"
+              name="password"
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+              type="password"
+              value={formik.values.password}
+              variant="outlined"
+            />
+            <Box sx={{ py: 2 }}>
+              <Button
+                color="primary"
+                disabled={formik.isSubmitting}
+                fullWidth
+                size="large"
+                type="submit"
+                variant="contained"
+              >
+                Ingresar
+              </Button>
+            </Box>
+          </form>
+        </Container>
+      </Box>
+    </>
   );
-}
+};
+
+export default Login;

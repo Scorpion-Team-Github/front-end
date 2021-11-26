@@ -1,5 +1,5 @@
 import axios from "axios";
-import { globals } from "../utils";
+import globals from "src/utils/globals";
 const ROOT = "https://neighlink-api.herokuapp.com/api/";
 
 export default {
@@ -18,7 +18,7 @@ export default {
                 return { ...data, unauthorized: false };
             })
             .catch((error) => {
-                console.error(error);
+                console.log('error', error);
                 return { unauthorized: true, error: true, message: 'ERROR SERVICE' }
             });
         console.log('RES => ', url, result)
@@ -32,6 +32,8 @@ export default {
         if (withToken)
             headers = { Authorization: `Bearer ${globals.user.token}` }
         headers["Access-Control-Allow-Origin"] = "*"
+        headers["Access-Control-Allow-Headers"] = "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+        headers["Access-Control-Allow-Methods"] = "PUT, POST, PATCH, DELETE, GET"
         const result = await axios
             .post(`${ROOT}${url}`, request, {
                 headers: headers
@@ -41,7 +43,7 @@ export default {
                 return { ...data, unauthorized: false };
             })
             .catch((error) => {
-                console.error(error);
+                console.log('error', error);
                 return { unauthorized: true, error: true, message: 'ERROR SERVICE' }
             });
         console.log('RES => ', url, result)
@@ -64,7 +66,7 @@ export default {
                 return { ...data, unauthorized: false };
             })
             .catch((error) => {
-                console.error(error);
+                console.log('error', error);
                 return { unauthorized: true, error: true, message: 'ERROR SERVICE' }
             });
         console.log('RES => ', url, result)
@@ -86,7 +88,7 @@ export default {
                 return { ...data, unauthorized: false };
             })
             .catch((error) => {
-                console.error(error);
+                console.log('error', error);
                 return { unauthorized: true, error: true, message: 'ERROR SERVICE' }
             });
         console.log('RES => ', url, result)
@@ -109,7 +111,7 @@ export default {
                 return { ...data, unauthorized: false };
             })
             .catch((error) => {
-                console.error(error);
+                console.log('error', error);
                 return { unauthorized: true, error: true, message: 'ERROR SERVICE' }
             });
         console.log('RES => ', url, result)
@@ -130,7 +132,7 @@ export default {
                 return { ...data, unauthorized: false };
             })
             .catch((error) => {
-                console.error(error);
+                console.log('error', error);
                 return { unauthorized: true, error: true, message: 'ERROR SERVICE' }
             });
         console.log('RES => ', url, result)
