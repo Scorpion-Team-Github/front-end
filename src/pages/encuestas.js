@@ -1,3 +1,4 @@
+import NextLink from 'next/link';
 import Head from 'next/head';
 import { v4 as uuid } from 'uuid';
 import { Box, Container,Grid, Typography, Button } from '@mui/material';
@@ -84,12 +85,17 @@ const Encuestas = () => (
                 Encuestas
             </Typography>
             <Box sx={{ m: 1 }}>
-                <Button
-                color="primary"
-                variant="contained"
+              <NextLink
+                  href="nuevaencuesta"
+                  passHref
                 >
-                Nueva encuesta
-                </Button>
+                  <Button
+                  color="primary"
+                  variant="contained"
+                  >
+                  Nueva encuesta
+                  </Button>
+                </NextLink>
             </Box>
         </Box>
         
