@@ -1,10 +1,9 @@
 import Head from 'next/head';
 import { v4 as uuid } from 'uuid';
 import { Box, Container,Grid, Typography, Button } from '@mui/material';
-import { CustomerListResults } from '../components/customer/customer-list-results';
 import { DashboardLayout } from '../components/dashboard-layout';
-import { customers } from '../__mocks__/customers';
 import { TinnyWidget } from '../components/dashboard/tinny-widget';
+import { ListTable } from '../components/crud/list-table';
 
 const encuestasList = [
     {
@@ -95,7 +94,7 @@ const Encuestas = () => (
         </Box>
         
         <Box sx={{ mt: 3 }}>
-          <CustomerListResults customers={encuestasList} />
+          <ListTable header={["titulo", "descripcion"]} listData={encuestasList} />
         </Box>
       </Container>
     </Box>

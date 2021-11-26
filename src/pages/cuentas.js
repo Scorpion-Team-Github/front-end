@@ -9,8 +9,11 @@ import { ListTable } from '../components/crud/list-table';
 const encuestasList = [
     {
       id: uuid(),
-      titulo: 'Jardines',
-      descripcion: 'Se compraran mas insumos para los jardines...'
+      nombre: 'Jardines',
+      descripcion: 'Se compraran mas insumos para los jardines...',
+      cantidad: 'S/. 200.00',
+      edificio: 'A',
+      categoria: 'Agua'
     },
 ];
 const Cuentas = () => (
@@ -95,7 +98,7 @@ const Cuentas = () => (
         </Box>
         
         <Box sx={{ mt: 3 }}>
-          <ListTable header={["Título", "Descripción"]} listData={encuestasList} />
+          <ListTable header={["nombre", "descripcion", "cantidad", "edificio", "categoria"]} listData={encuestasList} />
         </Box>
       </Container>
     </Box>

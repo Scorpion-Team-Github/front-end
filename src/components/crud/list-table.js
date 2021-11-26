@@ -80,7 +80,7 @@ export const ListTable = ({ listData, header, ...rest }) => {
                     onChange={handleSelectAll}
                   />
                 </TableCell>
-                {header.slice(0, limit).map((item) => (
+                {header.map((item) => (
                   <TableCell>
                     {item}
                   </TableCell>
@@ -102,24 +102,11 @@ export const ListTable = ({ listData, header, ...rest }) => {
                       value="true"
                     />
                   </TableCell>
-                  <TableCell>
-                    <Box
-                      sx={{
-                        alignItems: 'center',
-                        display: 'flex'
-                      }}
-                    >
-                      <Typography
-                        color="textPrimary"
-                        variant="body1"
-                      >
-                        {item.titulo}
-                      </Typography>
-                    </Box>
-                  </TableCell>
-                  <TableCell>
-                    {item.descripcion}
-                  </TableCell>
+                  {header.map((item_description) => (
+                    <TableCell>
+                      {item[item_description]}
+                    </TableCell>
+                  ))}
                   <TableCell>
                     <a href="#">Editar</a> | <a href="#">Detalles</a> | <a href="#">Eliminar</a>
                   </TableCell>
