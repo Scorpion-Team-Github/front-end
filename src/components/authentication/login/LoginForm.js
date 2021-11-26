@@ -17,12 +17,15 @@ import {
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { apiAuth } from 'src/api';
+import { constants } from 'src/utils';
 
 // ----------------------------------------------------------------------
 
 export default function LoginForm() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [errorLogin, setErrorLogin] = useState(false)
+  const [messageError, setMessageError] = useState('')
 
   const LoginSchema = Yup.object().shape({
     user: Yup.string().required('Campo requerido'),
@@ -37,8 +40,14 @@ export default function LoginForm() {
     },
     validationSchema: LoginSchema,
     onSubmit: async (values) => {
-      const res = await apiAuth.login({user: values.user, password: values.password})
-      navigate('/dashboard', { replace: true });
+      const res = await apiAuth.login({ user: values.user, password: values.password })
+      if (res.status_code !== constants.statusCode.OK) {
+        setErrorLogin(true)
+        setMessageError(res.message)
+      } else {
+        
+        navigate('/dashboard', { replace: true });
+      }
     }
   });
 
