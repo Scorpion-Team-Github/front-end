@@ -28,7 +28,7 @@ const items = [
     title: 'Encuestas'
   },
   {
-    href: '/customers',
+    href: '/cuentas',
     icon: (<UsersIcon fontSize="small" />),
     title: 'Cuentas'
   },
