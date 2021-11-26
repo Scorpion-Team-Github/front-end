@@ -33,7 +33,7 @@ const items = [
     title: 'Cuentas'
   },
   {
-    href: '/products',
+    href: '/usuarios',
     icon: (<PersonAddAltIcon fontSize="small" />),
     title: 'Usuarios'
   },
