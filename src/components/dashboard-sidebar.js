@@ -38,7 +38,7 @@ const items = [
     title: 'Usuarios'
   },
   {
-    href: '/account',
+    href: '/novedades',
     icon: (<ArticleIcon fontSize="small" />),
     title: 'Novedades'
   },
