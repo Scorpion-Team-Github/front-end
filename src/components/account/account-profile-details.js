@@ -30,7 +30,7 @@ export const AccountProfileDetails = (props) => {
     firstName: 'Katarina',
     lastName: 'Smith',
     email: 'demo@devias.io',
-    phone: '',
+    phone: '968787656',
     state: 'Alabama',
     country: 'USA'
   });
@@ -50,8 +50,8 @@ export const AccountProfileDetails = (props) => {
     >
       <Card>
         <CardHeader
-          subheader="The information can be edited"
-          title="Profile"
+          subheader="Pueden editar su informacion de perfil"
+          title="Perfil"
         />
         <Divider />
         <CardContent>
@@ -66,8 +66,8 @@ export const AccountProfileDetails = (props) => {
             >
               <TextField
                 fullWidth
-                helperText="Please specify the first name"
-                label="First name"
+                helperText="Por favor ingrese su nombre"
+                label="Nombre"
                 name="firstName"
                 onChange={handleChange}
                 required
@@ -82,7 +82,7 @@ export const AccountProfileDetails = (props) => {
             >
               <TextField
                 fullWidth
-                label="Last name"
+                label="Apellidos"
                 name="lastName"
                 onChange={handleChange}
                 required
@@ -97,7 +97,7 @@ export const AccountProfileDetails = (props) => {
             >
               <TextField
                 fullWidth
-                label="Email Address"
+                label="Email"
                 name="email"
                 onChange={handleChange}
                 required
@@ -112,7 +112,7 @@ export const AccountProfileDetails = (props) => {
             >
               <TextField
                 fullWidth
-                label="Phone Number"
+                label="Teléfono"
                 name="phone"
                 onChange={handleChange}
                 type="number"
@@ -120,7 +120,7 @@ export const AccountProfileDetails = (props) => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
+            {/* <Grid
               item
               md={6}
               xs={12}
@@ -160,7 +160,7 @@ export const AccountProfileDetails = (props) => {
                   </option>
                 ))}
               </TextField>
-            </Grid>
+            </Grid> */}
           </Grid>
         </CardContent>
         <Divider />
@@ -175,7 +175,7 @@ export const AccountProfileDetails = (props) => {
             color="primary"
             variant="contained"
           >
-            Save details
+            Guardar
           </Button>
         </Box>
       </Card>

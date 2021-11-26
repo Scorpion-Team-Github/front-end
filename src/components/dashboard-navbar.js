@@ -2,10 +2,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { AppBar, Avatar, Badge, Box, IconButton, Toolbar, Tooltip } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
-import { Bell as BellIcon } from '../icons/bell';
-import { UserCircle as UserCircleIcon } from '../icons/user-circle';
-import { Users as UsersIcon } from '../icons/users';
+import NextLink from 'next/link';
 
 const DashboardNavbarRoot = styled(AppBar)(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
@@ -48,6 +45,17 @@ export const DashboardNavbar = (props) => {
             <MenuIcon fontSize="small" />
           </IconButton>
           <Box sx={{ flexGrow: 1 }} />
+          
+          <NextLink
+            href='account'
+            passHref
+          >
+            <Tooltip title="Perfil">
+              <IconButton sx={{ ml: 1 }}>
+                Perfil
+              </IconButton>
+            </Tooltip>
+          </NextLink>
         </Toolbar>
       </DashboardNavbarRoot>
     </>

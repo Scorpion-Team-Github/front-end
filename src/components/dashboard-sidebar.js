@@ -42,26 +42,26 @@ const items = [
     icon: (<ArticleIcon fontSize="small" />),
     title: 'Novedades'
   },
-  {
-    href: '/settings',
-    icon: (<CogIcon fontSize="small" />),
-    title: 'Configuración'
-  },
-  {
-    href: '/login',
-    icon: (<ApartmentIcon fontSize="small" />),
-    title: 'Edificios'
-  },
-  {
-    href: '/register',
-    icon: (<ViewListIcon fontSize="small" />),
-    title: 'Categorías'
-  },
-  {
-    href: '/404',
-    icon: (<ManageAccountsIcon fontSize="small" />),
-    title: 'Roles'
-  }
+  // {
+  //   href: '/settings',
+  //   icon: (<CogIcon fontSize="small" />),
+  //   title: 'Configuración'
+  // },
+  // {
+  //   href: '/login',
+  //   icon: (<ApartmentIcon fontSize="small" />),
+  //   title: 'Edificios'
+  // },
+  // {
+  //   href: '/register',
+  //   icon: (<ViewListIcon fontSize="small" />),
+  //   title: 'Categorías'
+  // },
+  // {
+  //   href: '/404',
+  //   icon: (<ManageAccountsIcon fontSize="small" />),
+  //   title: 'Roles'
+  // }
 ];
 
 export const DashboardSidebar = (props) => {

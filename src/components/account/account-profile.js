@@ -11,11 +11,9 @@ import {
 
 const user = {
   avatar: '/static/images/avatars/avatar_6.png',
-  city: 'Los Angeles',
-  country: 'USA',
-  jobTitle: 'Senior Developer',
   name: 'Katarina Smith',
-  timezone: 'GTM-7'
+  email: 'demo@devias.io',
+  phone: '968787656',
 };
 
 export const AccountProfile = (props) => (
@@ -47,18 +45,18 @@ export const AccountProfile = (props) => (
           color="textSecondary"
           variant="body2"
         >
-          {`${user.city} ${user.country}`}
+          {`${user.email}`}
         </Typography>
         <Typography
           color="textSecondary"
           variant="body2"
         >
-          {user.timezone}
+          {user.phone}
         </Typography>
       </Box>
     </CardContent>
     <Divider />
-    <CardActions>
+    {/* <CardActions>
       <Button
         color="primary"
         fullWidth
@@ -66,6 +64,6 @@ export const AccountProfile = (props) => (
       >
         Upload picture
       </Button>
-    </CardActions>
+    </CardActions> */}
   </Card>
 );
