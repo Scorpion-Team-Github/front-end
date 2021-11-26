@@ -25,10 +25,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/nuevousuario": [
+    "/novedades": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/nuevousuario.js"
+      "static/chunks/pages/novedades.js"
+    ],
+    "/nuevanovedad": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/nuevanovedad.js"
     ],
     "/usuarios": [
       "static/chunks/webpack.js",
