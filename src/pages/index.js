@@ -1,11 +1,11 @@
 import Head from 'next/head';
 import { Box, Container, Grid } from '@mui/material';
-import { Budget } from '../components/dashboard/budget';
+import { CardValue } from '../components/dashboard/card-value';
 import { LatestOrders } from '../components/dashboard/latest-orders';
 import { LatestProducts } from '../components/dashboard/latest-products';
 import { Sales } from '../components/dashboard/sales';
 import { TasksProgress } from '../components/dashboard/tasks-progress';
-import { TotalCustomers } from '../components/dashboard/total-customers';
+import { Widget } from '../components/dashboard/widget';
 import { TotalProfit } from '../components/dashboard/total-profit';
 import { TrafficByDevice } from '../components/dashboard/traffic-by-device';
 import { DashboardLayout } from '../components/dashboard-layout';
@@ -36,7 +36,7 @@ const Dashboard = () => (
             xl={3}
             xs={12}
           >
-            <Budget />
+            <CardValue name="Deuda total sin pagar" value="S/.1000" background="#3930bb" color="#FFFFFF" />
           </Grid>
           <Grid
             item
@@ -45,7 +45,7 @@ const Dashboard = () => (
             sm={6}
             xs={12}
           >
-            <TotalCustomers />
+            <Widget name="Comunidad" background="#3930bb" color="#FFFFFF"/>
           </Grid>
           <Grid
             item
@@ -54,7 +54,7 @@ const Dashboard = () => (
             sm={6}
             xs={12}
           >
-            <TasksProgress />
+            <Widget name="Proveedores" background="#3930bb" color="#FFFFFF"/>
           </Grid>
           <Grid
             item
@@ -63,43 +63,43 @@ const Dashboard = () => (
             sm={6}
             xs={12}
           >
-            <TotalProfit sx={{ height: '100%' }} />
+            <Widget name="Reglas de convivencia" background="#3930bb" color="#FFFFFF"/>
           </Grid>
           <Grid
             item
-            lg={8}
-            md={12}
-            xl={9}
-            xs={12}
-          >
-            <Sales />
-          </Grid>
-          <Grid
-            item
-            lg={4}
-            md={6}
+            lg={3}
+            sm={6}
             xl={3}
             xs={12}
           >
-            <TrafficByDevice sx={{ height: '100%' }} />
+            <CardValue name="Usuarios registrados en el condominio" value="2" background="#3930bb" color="#FFFFFF"/>
           </Grid>
           <Grid
             item
-            lg={4}
-            md={6}
             xl={3}
+            lg={3}
+            sm={6}
             xs={12}
           >
-            <LatestProducts sx={{ height: '100%' }} />
+            <Widget name="Reservaciones" background="#3930bb" color="#FFFFFF"/>
           </Grid>
           <Grid
             item
-            lg={8}
-            md={12}
-            xl={9}
+            xl={3}
+            lg={3}
+            sm={6}
             xs={12}
           >
-            <LatestOrders />
+            <Widget name="Incidencias" background="#3930bb" color="#FFFFFF"/>
+          </Grid>
+          <Grid
+            item
+            xl={3}
+            lg={3}
+            sm={6}
+            xs={12}
+          >
+            <Widget name="Soporte" background="#3930bb" color="#FFFFFF"/>
           </Grid>
         </Grid>
       </Container>
