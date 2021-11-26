@@ -25,25 +25,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/cuentas": [
+    "/nuevousuario": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/cuentas.js"
+      "static/chunks/pages/nuevousuario.js"
     ],
-    "/encuestas": [
+    "/usuarios": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/encuestas.js"
-    ],
-    "/nuevacuenta": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/nuevacuenta.js"
-    ],
-    "/nuevaencuesta": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/nuevaencuesta.js"
+      "static/chunks/pages/usuarios.js"
     ]
   },
   "ampFirstPages": []
