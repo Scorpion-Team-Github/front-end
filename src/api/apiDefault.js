@@ -31,9 +31,7 @@ export default {
         let headers = {}
         if (withToken)
             headers = { Authorization: `Bearer ${globals.user.token}` }
-        headers["Access-Control-Allow-Origin"] = "*"
-        headers["Access-Control-Allow-Headers"] = "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-        headers["Access-Control-Allow-Methods"] = "PUT, POST, PATCH, DELETE, GET"
+        headers["Access-Control-Allow-Origin"] = "http://127.0.0.1:3000"
         const result = await axios
             .post(`${ROOT}${url}`, request, {
                 headers: headers

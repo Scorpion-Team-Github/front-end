@@ -1,9 +1,13 @@
 {
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
+<<<<<<< HEAD
   "/_error": "pages/_error.js",
   "/customers": "pages/customers.js",
   "/404": "pages/404.js",
   "/settings": "pages/settings.js",
   "/account": "pages/account.js"
+=======
+  "/_error": "pages/_error.js"
+>>>>>>> 2249a1850b426a9e2e84a4839554dafa1d11f529
 }
