@@ -15,25 +15,8 @@ export const TotalProfit = (props) => (
             gutterBottom
             variant="overline"
           >
-            TOTAL PROFIT
+            REGLAS DE CONVIVENCIA
           </Typography>
-          <Typography
-            color="textPrimary"
-            variant="h4"
-          >
-            $23k
-          </Typography>
-        </Grid>
-        <Grid item>
-          <Avatar
-            sx={{
-              backgroundColor: 'primary.main',
-              height: 56,
-              width: 56
-            }}
-          >
-            <AttachMoneyIcon />
-          </Avatar>
         </Grid>
       </Grid>
     </CardContent>
